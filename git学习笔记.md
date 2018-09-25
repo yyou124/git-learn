@@ -16,6 +16,12 @@
 
 ## git命令：
 
+解决使用git status 显示中文乱码问题
+
+`git config --global core.quotepath false`
+
+
+
 #### git本地操作
 
 **git --help**	调出帮助文档
