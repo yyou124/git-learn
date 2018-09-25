@@ -16,6 +16,12 @@
 
 ## git命令：
 
+解决windows使用git时出现：warning: LF will be replaced by CRLF
+
+windows中的换行符为 CRLF， 而在linux下的换行符为LF，解决办法：
+
+`git config --global core.autocrlf false`
+
 解决使用git status 显示中文乱码问题
 
 `git config --global core.quotepath false`
