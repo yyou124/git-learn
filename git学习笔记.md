@@ -59,7 +59,7 @@ git checkout 【本地分支】 【文件名】	从所写分拉去并覆盖文�
 
 ## git文件状态
 
-![](C:\Users\youde\Pictures\git文件状态.jpg)
+![](./git文件状态.jpg)
 
 
 
@@ -159,4 +159,28 @@ index c200906..29e2b3c 100644
 ```
 
 ### reset命令
+
+将不必要的文件从暂存区删除
+
+更正上一次的提交，或者提交信息
+
+版本回滚
+
+git reset HEAD 【文件名】 移除暂存区文件
+
+git reset HEAD^	移除最近一次提交，以及删除暂存区文件
+
+git reset --soft HEAD^	移除最近移除提交，不删除暂存区文件 
+
+​		常用于修改commit的提交信息
+
+git reset --soft 将HEAD引用指向指定的提交，工作区和暂存区不会改变	
+
+git reset --mixed （default）将HEAD引用指向指定的提交	，工作区不变和暂存区改变
+
+git reset --hard 将HEAD引用指向指定的提交，工作区和暂存区都会改变（版本回滚）
+
+### 分支合并/冲突解决
+
+111111
 
