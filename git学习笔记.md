@@ -14,6 +14,18 @@
 
 工作区、暂存区、本地仓库、远程仓库
 
+## git中的一些error解决方法
+
+解决windows使用git时出现：warning: LF will be replaced by CRLF
+
+windows中的换行符为 CRLF， 而在linux下的换行符为LF，解决办法：
+
+`git config --global core.autocrlf false`
+
+解决使用git status 显示中文乱码问题
+
+`git config --global core.quotepath false`
+
 ## git命令：
 
 #### git本地操作
@@ -35,15 +47,15 @@
 
 **git commit** **-m "想要说的话"**		将**暂存区文件**提交到**本地仓库**
 
-git status	用于查看文件状态
+**git status**	用于查看文件状态
 
-git rm	用于git文件的删除，删除本地文件，并提交暂存区
+**git rm**	用于git文件的删除，删除本地文件，并提交暂存区
 
-git rm -- cache仅删除暂存区文件
+**git rm -- cache**	仅删除暂存区文件
 
 **git checkout** 从暂存区将文件恢复到本地文件，并进行覆盖。
 
-git checkout 【本地分支】 【文件名】	从所写分拉去并覆盖文件
+**git checkout 【本地分支】 【文件名】**	从所写分支拉取并覆盖文件
 
 #### git远程操作
 
@@ -60,9 +72,7 @@ git checkout 【本地分支】 【文件名】	从所写分拉去并覆盖文�
 ## git文件状态
 
 ![](./git文件状态.jpg)
-
-
-
+=======
 新建文件 ---->> Untracked
 
 使用add命令将其加入暂存区 ---->>>Staged
@@ -99,9 +109,9 @@ git图形化客户端-------source tree
 
 **git checkout 【分支名**】 切换分支 如果modified当前分支文件后，没有commit就切换分支，会报错，因为没有commit的文件在切换分支后不会更新。
 
-**git checkout -f 【分支名】** 强制切换分支，不会报错。慎用。
+**git checkout -f 【分支名**】 强制切换分支，不会报错。慎用。
 
-**-f** 强制性参数，一定要非常小心使用，一般情况下不建议使用。
+**-f 强制性参数，一定要非常小心使用，一般情况下不建议使用**。
 
 ### git日志
 
@@ -129,7 +139,7 @@ Date:   Mon Sep 24 18:01:57 2018 +0800			//提交时间
 
 ### git diff命令
 
-用来解决冲突，用来制作
+用来解决冲突
 
 **git diff** **不加任何参数** 用于比较当前工作区跟暂存区的差异
 
@@ -159,7 +169,6 @@ index c200906..29e2b3c 100644
 ```
 
 ### reset命令
-
 将不必要的文件从暂存区删除
 
 更正上一次的提交，或者提交信息
@@ -184,5 +193,24 @@ index c200906..29e2b3c 100644
 
 **git merge 【分支1】 【分支2】** 将分支1合并到分支2中
 
-123123
+**git diff --name-only --diff-filter=U** 用于查看冲突文件
 
+### 标签
+
+**git tag 不加任何参数**，表示显示标签（以字母顺序）
+
+**git tag 【标签名】** 默认给最近一次提交打上标签
+
+**git tag 【标签名】**【commitid】给相应commit打上标签
+
+**git show 【标签名】** 用于显示该标签相关的提交信息
+
+**git tag -d 【标签名】** 删除相应的标签名
+
+**git push 【远程分支名】【标签名】** 把某个标签（本地已经存在的，否则推送失败）推动到远程分支
+
+#### 删除远程标签的步骤：
+
+先删除本地标签，再删除远程标签 git push 【远程分支名】:refs/tags/标签名
+
+标签跟commit挂钩
